@@ -1,0 +1,36 @@
+#include<stdio.h>
+int main(){
+    int fir,sec,thir,four;
+    while(1){
+        int n;
+        int fir,sec,thir,four;
+        printf("Hello\n");
+        printf("We have four choice of Pasta\n");
+        printf("1.Unexpected Italian pasta\n");
+        printf("2.Bacon Italian pasta\n");
+        printf("3.Beef Italian pasta\n");
+        printf("4.Shrimp Italian pasta\n");
+        printf("5.return\n\n");
+        scanf("%d",&n);
+        if(n==5)
+            break;
+        switch(n){
+        case 1:
+            printf("How many shares of Unexpected Italian pasta do you want?\n");
+            scanf("%d",&fir);
+            break;
+        case 2:
+            printf("How many shares of Bacon Italian pasta do you want?\n");
+            scanf("%d",&sec);
+            break;
+        case 3:
+            printf("How many shares of Beef Italian pasta do you want?\n");
+            scanf("%d",&thir);
+            break;
+        case 4:
+            printf("How many shares of Shrimp Italian pasta do you want?\n");
+            scanf("%d",&four);
+            break;
+        }
+    }
+}
