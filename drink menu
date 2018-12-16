@@ -1,0 +1,94 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+void drinkmenu(void)
+{
+    printf("drink\n"
+           "1.Bubble water 10 dollars\n"
+           "2.Sprite 30 dollars\n"
+           "3.Cola 40 dollars\n"
+           "4.Tea 60 dollars\n->");
+}
+void drinkchoice(char d[10])
+{
+    printf("How many do ");
+    for(int i=0; i<strlen(d); i++)
+    {
+        if(d[i]=='1')
+            printf("Bubble water ");
+        if(d[i]=='2')
+            printf("Sprite ");
+        if(d[i]=='3')
+            printf("Cola ");
+        if(d[i]=='4')
+            printf("Tea");
+        if(i!=strlen(d)-1)
+            printf("and ");
+    }
+    printf("have?\n->");
+
+}
+void total(char d[10],char n[10])
+{
+    int price[4];
+    for(int i=0; i<4; i++)
+    {
+        if(d[i]=='1')
+        {
+            price[i]=10*(n[i]-48);
+            printf("Bubble water %c shares %d dollars.\n",n[i],price[i]);
+        }
+        if(d[i]=='2')
+        {
+            price[i]=30*(n[i]-48);
+            printf("Sprite %c shares %d dollars.\n",n[i],price[i]);
+        }
+        if(d[i]=='3')
+        {
+            price[i]=40*(n[i]-48);
+            printf("Cola %c shares %d dollars.\n",n[i],price[i]);
+        }
+        if(d[i]=='4')
+        {
+            price[i]=60*(n[i]-48);
+            printf("Tea %c shares %d dollars.\n",n[i],price[i]);
+        }
+    }
+}
+
+
+
+int main()
+{
+    char d[10];
+    char n[10];
+    drinkmenu();
+    gets(d);
+    for(int i=0; i<=strlen(d); i++)
+    {
+        if(d[i]==' ')
+        {
+            for(int j=i; j<9-i; j++)
+            {
+                d[j]=d[j+1];
+            }
+        }
+        if(d[i]>'4')
+            d[i]=' ';
+    }
+
+    drinkchoice(d);
+    gets(n);
+    for(int i=0; i<=strlen(n); i++)
+    {
+        if(n[i]==' ')
+        {
+            for(int j=i; j<9-i; j++)
+            {
+                n[j]=n[j+1];
+            }
+        }
+
+    }
+    total(d,n);
+}
