@@ -1,0 +1,20 @@
+#include<stdio.h>
+int main()
+{
+    int choice;
+    printf("Payment methods\n");
+    printf("1.Cash\n");
+    printf("2.Card\n");
+    printf("->");
+    scanf("%d",&choice);
+    printf("Unexpected Italian pasta x shares x dollars\n");
+    printf("Bacon Italian pasta      x shares x dollars\n");
+    printf("Beef Italian pasta       x shares x dollars\n");
+    printf("Shrimp Italian pasta     x shares x dollars\n");
+    printf("Bubble water             x shares x dollars\n");
+    printf("Sprite                   x shares x dollars\n");
+    printf("Cola                     x shares x dollars\n");
+    printf("Tea                      x shares x dollars\n");
+    printf("Total x dollars\n");
+    return 0;
+}
