@@ -88,6 +88,7 @@ int main()
                     printf("Shrimp Italian pasta %c shares %d dollars.\n",n[i],price[i]);
                 }
             }
+            break;
         case 2:
             printf("drink\n"
                    "1.Bubble water 10 dollars\n"
