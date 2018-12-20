@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+int main()
+{
+    int choice;
+    while(1)
+    {   int n;
+        printf("Dessert Menu\n");
+        printf("1.Tiramisu \n");
+        printf("2.Almomdmn biscuits\n");
+        printf("3.Zeppole\n");
+        printf("4.Italian chocolate\n");
+        printf("=>");
+        scanf("%d", &choice);
+        if(choice==4)break;
+        switch(choice)
+        {
+        case 1:
+            printf("How many Tiramisu do you want? ");
+            scanf("%d", &n);
+
+                break;
+        case 2:
+            printf("How many Almomdmn biscuits do you want? ");
+            scanf("%d", &n);
+
+                break;
+
+        case 3:
+            printf("How many Zeppole do you want? ");
+            scanf("%d", &n);
+
+                break;
+
+        case 4:
+            printf("How many Italian chocolate do you want? ");
+            scanf("%d", &n);
+
+                break;
+            }
+
+
+        }
+        return 0;
+    }
+
+
+
