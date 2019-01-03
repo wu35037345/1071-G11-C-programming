@@ -34,3 +34,58 @@ int main(){
         }
     }
 }
+
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#include <string.h>
+#define MAX 20
+int main()
+{
+    int n1,n2,n3,id;
+    int a,b,c,d,e,aa=0,bb=0,cc=0,dd=0,ee=0;
+    printf("Today the 5 winner numbers are 05 13 26 38 41.\n");
+    char cName[20];
+    char cbir[3];
+    char cid[20];
+    char cnum[20];
+    char number[MAX];
+    printf("Enter name: ");
+    gets(cName);
+    printf("Enter birthday: ");
+    gets(cbir);
+    printf("Enter ID: ");
+    gets(cid);
+    printf("Help you draw 5 numbers ... ");
+    srand(time(NULL));
+    a = rand()%9+1;
+    b = rand()%9+11;
+    c = rand()%9+21;
+    d = rand()%9+31;
+    e = rand()%9+41;
+    if(a==5)
+        aa++;
+    if(b==13)
+        bb++;
+    if(c==26)
+        cc++;
+    if(d==38)
+        dd++;
+    if(e==41)
+        ee++;
+    printf("Name: %s\n", cName );
+    printf("Birthday: %s\n", cbir );
+    printf("ID: %s\n", cid);
+    printf("You get the 5 numbers are: %d %d %d %d %d\n",a,b,c,d,e);
+    printf("You win %d numbers.",aa+bb+cc+dd+ee);
+    return 0;
+}
+/*
+1 number95%
+2 number9%
+3 number8%
+4 number7%
+5 number5%
+*/
