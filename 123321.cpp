@@ -1,0 +1,560 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<time.h>
+#define MAX 100
+struct Order{
+    int pasta[8]={0};
+    int drink[8]={0};
+    int dessert[8]={0};
+    int price[8];
+    int lotto[5];
+};
+int winlose(int lotto[5],int lotto2[5])
+{
+	int win=0;
+	for(int i=0;i<5;i++)
+	{
+		if(lotto[i]==lotto2[i])
+			win++;
+	}
+	return win;
+}
+void scarednumber2(int lotto2[5])
+{
+    srand(time(NULL));
+	for(int i=0;i<=4;i++)
+    {
+    	lotto2[i]=rand()%10+i*10+1;
+	}
+	printf("You get the 5 numbers are");
+	for(int i=0;i<=4;i++)
+		printf(" %d",lotto2[i]);
+	printf(".\n");
+}
+void scarednumber(int lotto[5])
+{
+    srand(time(NULL));
+	for(int i=0;i<=4;i++)
+    {
+    	lotto[i]=rand()%10+i*10+1;
+	}
+	printf("Today the 5 winner numbers are");
+	for(int i=0;i<=4;i++)
+		printf(" %d",lotto[i]);
+	printf(".\n");
+}
+void payment(int pasta[8],int drink[8],int dessert[8],int lotto[5])
+{
+    int total=0,choice2,lotto2[5]={0},year,month,day,ID,phonenumber;
+    char creditcardnumber[16];
+    char name[MAX];
+    printf("Pay methods\n");
+    printf("1.Cash\n");
+    printf("2.Card\n");
+    printf("->");
+    scanf("%d",&choice2);
+    printf("\n");
+    if(choice2==1)
+    {
+    	printf("Enter name:");
+    	getchar();
+    	gets(name);
+    	printf("\nEnter birthday:");
+
+    	scanf("%d %d %d",&year,&month,&day);
+    	printf("\n");
+    	printf("Enter ID:");
+    	scanf("%d",&ID);
+    	system("CLS");
+    	printf("Help you draw 5 numbers...\n\n");
+    	printf("ID:%d\n\n",ID);
+    	printf("Name:%s\n\n",name);
+    	printf("Birthday:%4d %02d %02d\n\n",year,month,day);
+    	scarednumber2(lotto2);
+    	int win=winlose(lotto,lotto2);
+    	printf("You win %d numbers.\n\n",win);
+	}
+	else
+	{
+		printf("Enter name:");
+    	getchar();
+    	gets(name);
+    	printf("\nEnter birthday:");
+    	scanf("%d %d %d",&year,&month,&day);
+    	printf("\n");
+    	printf("Enter phone number(9 numbers):");
+    	scanf("%d",&phonenumber);
+    	printf("\n");
+    	printf("Enter credit card number(16 numbers):");
+    	getchar();
+    	gets(creditcardnumber);
+    	printf("Enter ID:");
+    	scanf("%d",&ID);
+    	system("CLS");
+    	printf("Help you draw 5 numbers...\n");
+    	printf("ID:%d\n\n",ID);
+    	printf("Name:%s\n\n",name);
+    	printf("Birthday:%4d %02d %02d\n\n",year,month,day);
+    	printf("Phone number:%010d\n\n",phonenumber);
+    	printf("Credit card number:%s\n\n",creditcardnumber);
+    	scarednumber2(lotto2);
+    	int win=winlose(lotto,lotto2);
+    	printf("You win %d numbers.\n\n",win);
+	}
+    if(pasta[0]!=0)
+        printf("Unexpected Italian pasta %d shares %d dollars\n",pasta[0],pasta[0]*500);
+    if(pasta[1]!=0)
+        printf("Bacon Italian pasta      %d shares %d dollars\n",pasta[1],pasta[1]*700);
+    if(pasta[2]!=0)
+        printf("Beef Italian pasta       %d shares %d dollars\n",pasta[2],pasta[2]*800);
+    if(pasta[3]!=0)
+        printf("Shrimp Italian pasta     %d shares %d dollars\n",pasta[3],pasta[3]*900);
+    if(pasta[4]!=0)
+        printf("Chicken pasta            %d shares %d dollars\n",pasta[4],pasta[4]*600);
+    if(pasta[5]!=0)
+        printf("Vegetable pasta          %d shares %d dollars\n",pasta[5],pasta[5]*500);
+    if(pasta[6]!=0)
+        printf("Sausage pasta            %d shares %d dollars\n",pasta[6],pasta[6]*850);
+    if(pasta[7]!=0)
+        printf("Seafood pasta            %d shares %d dollars\n",pasta[7],pasta[7]*1000);
+    if(drink[0]!=0)
+        printf("Bubble water             %d shares %d dollars\n",drink[0],drink[0]*100);
+    if(drink[1]!=0)
+        printf("Sprite                   %d shares %d dollars\n",drink[1],drink[1]*300);
+    if(drink[2]!=0)
+        printf("Cola                     %d shares %d dollars\n",drink[2],drink[2]*400);
+    if(drink[3]!=0)
+        printf("Tea                      %d shares %d dollars\n",drink[3],drink[3]*600);
+    if(drink[4]!=0)
+        printf("Wine                     %d shares %d dollars\n",drink[4],drink[4]*5000);
+    if(drink[5]!=0)
+        printf("Milk tea                 %d shares %d dollars\n",drink[5],drink[5]*200);
+    if(drink[6]!=0)
+        printf("Bale juice               %d shares %d dollars\n",drink[6],drink[6]*450);
+    if(drink[7]!=0)
+        printf("Calpis                   %d shares %d dollars\n",drink[7],drink[7]*300);
+    if(dessert[0]!=0)
+        printf("Bubble water             %d shares %d dollars\n",dessert[0],dessert[0]*1500);
+    if(dessert[1]!=0)
+        printf("Sprite                   %d shares %d dollars\n",dessert[1],dessert[1]*1500);
+    if(dessert[2]!=0)
+        printf("Cola                     %d shares %d dollars\n",dessert[2],dessert[2]*1800);
+    if(dessert[3]!=0)
+        printf("Tea                      %d shares %d dollars\n",dessert[3],dessert[3]*1200);
+    if(dessert[4]!=0)
+        printf("Wine                     %d shares %d dollars\n",dessert[4],dessert[4]*2500);
+    if(dessert[5]!=0)
+        printf("Milk tea                 %d shares %d dollars\n",dessert[5],dessert[5]*3500);
+    if(dessert[6]!=0)
+        printf("Bale juice               %d shares %d dollars\n",dessert[6],dessert[6]*1600);
+    if(dessert[7]!=0)
+        printf("Calpis                   %d shares %d dollars\n",dessert[7],dessert[7]*300);
+    total=pasta[0]*500+pasta[1]*700+pasta[2]*800+pasta[3]*900+pasta[4]*600+pasta[5]*500+pasta[6]*850+pasta[7]*1000;
+    total+=(drink[0]*100+drink[1]*300+drink[2]*400+drink[3]*600+drink[4]*5000+drink[5]*200+drink[6]*450+drink[7]*300);
+    total+=(dessert[0]*1500+dessert[1]*1500+dessert[2]*1800+dessert[3]*1200+dessert[4]*2500+dessert[5]*3500+dessert[6]*1600+dessert[7]*300);
+    printf("\ntotal=%d",total);
+}
+void desserts(int dessert[8])
+{
+    int price[8];
+    char d[20],n[20];
+    printf("Dessert\n"
+           "1.Tiramisu                             1500 dollars\n"
+           "2.Zeppole                              1500 dollars\n"
+           "3.Amaretti                             1800 dollars\n"
+           "4.Peach biscuit                        1200 dollars\n"
+           "5.Baci di Dama                         2500 dollars\n"
+           "6.Cannoli Siciliani with fresh ricotta 3500 dollars\n"
+           "7.Candied fruit Sabah                  1600 dollars\n"
+           "8.Chocolate ice cream                  300 dollars\n->");
+    gets(d);
+    for(int i=0; i<=strlen(d); i++)
+    {
+        if(d[i]==' ')
+        {
+            for(int j=i; j<19-i; j++)
+            {
+                d[j]=d[j+1];
+            }
+        }
+        if(d[i]>'8')
+            d[i]=' ';
+    }
+
+    printf("\n\nHow many do ");
+    for(int i=0; i<strlen(d); i++)
+    {
+        if(d[i]=='1')
+            printf("Tiramisu ");
+        if(d[i]=='2')
+            printf("Zeppole ");
+        if(d[i]=='3')
+            printf("Amaretti ");
+        if(d[i]=='4')
+            printf("Peach biscuit ");
+        if(d[i]=='5')
+            printf("Baci di Dama ");
+        if(d[i]=='6')
+            printf("Cannoli Siciliani with fresh ricotta ");
+        if(d[i]=='7')
+            printf("Candied fruit Sabaha ");
+        if(d[i]=='8')
+            printf("Chocolate ice cream ");
+        if(i!=strlen(d)-1)
+            printf("and ");
+    }
+    printf("have?\n->");
+
+    gets(n);
+    for(int i=0; i<=strlen(n); i++)
+    {
+        if(n[i]==' ')
+        {
+            for(int j=i; j<19-i; j++)
+            {
+                n[j]=n[j+1];
+            }
+        }
+
+    }
+    printf("\n\n");
+    for(int i=0; i<8; i++)
+    {
+        if(d[i]=='1')
+        {
+            price[i]=1500*(n[i]-48);
+            printf("Tiramisu                             %c shares %d dollars.\n",n[i],price[i]);
+            dessert[0]=n[i]-48;
+        }
+        if(d[i]=='2')
+        {
+            price[i]=1500*(n[i]-48);
+            printf("Zeppole                              %c shares %d dollars.\n",n[i],price[i]);
+            dessert[1]=n[i]-48;
+        }
+        if(d[i]=='3')
+        {
+            price[i]=1800*(n[i]-48);
+            printf("Amaretti                             %c shares %d dollars.\n",n[i],price[i]);
+            dessert[2]=n[i]-48;
+        }
+        if(d[i]=='4')
+        {
+            price[i]=1200*(n[i]-48);
+            printf("Peach biscuit                        %c shares %d dollars.\n",n[i],price[i]);
+            dessert[3]=n[i]-48;
+        }
+        if(d[i]=='5')
+        {
+            price[i]=2500*(n[i]-48);
+            printf("Baci di Dama                         %c shares %d dollars.\n",n[i],price[i]);
+            dessert[4]=n[i]-48;
+        }
+        if(d[i]=='6')
+        {
+            price[i]=3500*(n[i]-48);
+            printf("Cannoli Siciliani with fresh ricotta %c shares %d dollars.\n",n[i],price[i]);
+            dessert[5]=n[i]-48;
+        }
+        if(d[i]=='7')
+        {
+            price[i]=1600*(n[i]-48);
+            printf("Candied fruit Sabaha                 %c shares %d dollars.\n",n[i],price[i]);
+            dessert[6]=n[i]-48;
+        }
+        if(d[i]=='8')
+        {
+            price[i]=350*(n[i]-48);
+            printf("Chocolate ice cream                  %c shares %d dollars.\n",n[i],price[i]);
+            dessert[7]=n[i]-48;
+        }
+    }
+}
+
+void drinks(int drink[8])
+{
+    int price[8];
+    char d[20],n[20];
+    printf("drink\n"
+           "1.Bubble water 100 dollars\n"
+           "2.Sprite       300 dollars\n"
+           "3.Cola         400 dollars\n"
+           "4.Tea          600 dollars\n"
+           "5.Wine         5000 dollars\n"
+           "6.Milk tea     200 dollars\n"
+           "7.Bale juice   450 dollars\n"
+           "8.Calpis       300 dollars\n->");
+    gets(d);
+    for(int i=0; i<=strlen(d); i++)
+    {
+        if(d[i]==' ')
+        {
+            for(int j=i; j<19-i; j++)
+            {
+                d[j]=d[j+1];
+            }
+        }
+        if(d[i]>'8')
+            d[i]=' ';
+    }
+
+    printf("\n\nHow many do ");
+    for(int i=0; i<strlen(d); i++)
+    {
+        if(d[i]=='1')
+            printf("Bubble water ");
+        if(d[i]=='2')
+            printf("Sprite ");
+        if(d[i]=='3')
+            printf("Cola ");
+        if(d[i]=='4')
+            printf("Tea ");
+        if(d[i]=='5')
+            printf("Wine ");
+        if(d[i]=='6')
+            printf("Milk tea ");
+        if(d[i]=='7')
+            printf("Bale juice ");
+        if(d[i]=='8')
+            printf("Calpis ");
+        if(i!=strlen(d)-1)
+            printf("and ");
+    }
+    printf("have?\n->");
+
+    gets(n);
+    for(int i=0; i<=strlen(n); i++)
+    {
+        if(n[i]==' ')
+        {
+            for(int j=i; j<19-i; j++)
+            {
+                n[j]=n[j+1];
+            }
+        }
+
+    }
+    printf("\n\n");
+    for(int i=0; i<8; i++)
+    {
+        if(d[i]=='1')
+        {
+            price[i]=100*(n[i]-48);
+            printf("Bubble water %c shares %d dollars.\n",n[i],price[i]);
+            drink[0]=n[i]-48;
+        }
+        if(d[i]=='2')
+        {
+            price[i]=300*(n[i]-48);
+            printf("Sprite       %c shares %d dollars.\n",n[i],price[i]);
+            drink[1]=n[i]-48;
+        }
+        if(d[i]=='3')
+        {
+            price[i]=400*(n[i]-48);
+            printf("Cola         %c shares %d dollars.\n",n[i],price[i]);
+            drink[2]=n[i]-48;
+        }
+        if(d[i]=='4')
+        {
+            price[i]=600*(n[i]-48);
+            printf("Tea          %c shares %d dollars.\n",n[i],price[i]);
+            drink[3]=n[i]-48;
+        }
+        if(d[i]=='5')
+        {
+            price[i]=5000*(n[i]-48);
+            printf("Wine         %c shares %d dollars.\n",n[i],price[i]);
+            drink[4]=n[i]-48;
+        }
+        if(d[i]=='6')
+        {
+            price[i]=200*(n[i]-48);
+            printf("Milk tea     %c shares %d dollars.\n",n[i],price[i]);
+            drink[5]=n[i]-48;
+        }
+        if(d[i]=='7')
+        {
+            price[i]=450*(n[i]-48);
+            printf("Bale juice   %c shares %d dollars.\n",n[i],price[i]);
+            drink[6]=n[i]-48;
+        }
+        if(d[i]=='8')
+        {
+            price[i]=300*(n[i]-48);
+            printf("Calpis       %c shares %d dollars.\n",n[i],price[i]);
+            drink[7]=n[i]-48;
+        }
+    }
+}
+void pastas(int pasta[8])
+{
+    int price[8];
+    char d[20],n[20];
+    printf("Italian pasta\n"
+           "1.Unexpected Italian pasta 500 dollars\n"
+           "2.Bacon Italian pasta      700 dollars\n"
+           "3.Beef Italian pasta       800 dollars\n"
+           "4.Shrimp Italian pasta     900 dollars\n"
+           "5.Chicken pasta            600 dollars\n"
+           "6.Vegetable pasta          500 dollars\n"
+           "7.Sausage pasta            850 dollars\n"
+           "8.Seafood pasta            1000 dollars\n->");
+    gets(d);
+    for(int i=0; i<=strlen(d); i++)
+    {
+        if(d[i]==' ')
+        {
+            for(int j=i; j<19-i; j++)
+            {
+                d[j]=d[j+1];
+            }
+        }
+        if(d[i]>'8')
+            d[i]=' ';
+    }
+
+    printf("\n\nHow many do ");
+    for(int i=0; i<strlen(d); i++)
+    {
+        if(d[i]=='1')
+            printf("Unexpected Italian pasta ");
+        if(d[i]=='2')
+            printf("Bacon Italian pasta ");
+        if(d[i]=='3')
+            printf("Beef Italian pasta ");
+        if(d[i]=='4')
+            printf("Shrimp Italian pasta ");
+        if(d[i]=='5')
+            printf("Chicken pasta ");
+        if(d[i]=='6')
+            printf("Vegetable pasta ");
+        if(d[i]=='7')
+            printf("Sausage pasta ");
+        if(d[i]=='8')
+            printf("Seafood pasta ");
+        if(i!=strlen(d)-1)
+            printf("and ");
+    }
+    printf("have?\n->");
+
+    gets(n);
+    for(int i=0; i<=strlen(n); i++)
+    {
+        if(n[i]==' ')
+        {
+            for(int j=i; j<19-i; j++)
+            {
+                n[j]=n[j+1];
+            }
+        }
+
+    }
+    printf("\n\n");
+    for(int i=0; i<8; i++)
+    {
+        if(d[i]=='1')
+        {
+            price[i]=500*(n[i]-48);
+            printf("Unexpected Italian pasta %c shares %d dollars.\n",n[i],price[i]);
+            pasta[0]=n[i]-48;
+        }
+        if(d[i]=='2')
+        {
+            price[i]=700*(n[i]-48);
+            printf("Bacon Italian pasta      %c shares %d dollars.\n",n[i],price[i]);
+            pasta[1]=n[i]-48;
+        }
+        if(d[i]=='3')
+        {
+            price[i]=800*(n[i]-48);
+            printf("Beef Italian pasta       %c shares %d dollars.\n",n[i],price[i]);
+            pasta[2]=n[i]-48;
+        }
+        if(d[i]=='4')
+        {
+            price[i]=900*(n[i]-48);
+            printf("Shrimp Italian pasta     %c shares %d dollars.\n",n[i],price[i]);
+            pasta[3]=n[i]-48;
+        }
+        if(d[i]=='5')
+        {
+            price[i]=600*(n[i]-48);
+            printf("Chicken pasta            %c shares %d dollars.\n",n[i],price[i]);
+            pasta[4]=n[i]-48;
+        }
+        if(d[i]=='6')
+        {
+            price[i]=500*(n[i]-48);
+            printf("Vegetable pasta          %c shares %d dollars.\n",n[i],price[i]);
+            pasta[5]=n[i]-48;
+        }
+        if(d[i]=='7')
+        {
+            price[i]=850*(n[i]-48);
+            printf("Sausage pasta            %c shares %d dollars.\n",n[i],price[i]);
+            pasta[6]=n[i]-48;
+        }
+        if(d[i]=='8')
+        {
+            price[i]=1000*(n[i]-48);
+            printf("Seafood pasta            %c shares %d dollars.\n",n[i],price[i]);
+            pasta[7]=n[i]-48;
+        }
+    }
+}
+int main()
+{
+    Order order;
+    int lotto[5]={0};
+    int choice;
+    char d[20],n[20];
+    int total=0;
+    printf("Welcome to the Tamkang Yi Restaurant\n");
+    scarednumber(lotto);
+    printf("Menu\n");
+    printf("1.Italian pasta\n");
+    printf("2.drink\n");
+    printf("3.dessert\n");
+    printf("4.I have ordered the menu, I settle accounts.\n");
+    printf("->");
+    scanf("%d",&choice);
+    getchar();
+    system("CLS");
+    while(choice!=4)
+    {
+        switch(choice)
+        {
+        case 1:
+            pastas(order.pasta);
+            printf("\n\nEnter to return menu...");
+            getchar();
+            system("CLS");
+            break;
+        case 2:
+            drinks(order.drink);
+            printf("\n\nEnter to return menu...");
+            getchar();
+            system("CLS");
+            break;
+        case 3:
+            desserts(order.dessert);
+            printf("\n\nEnter to return menu...");
+            getchar();
+            system("CLS");
+            break;
+        }
+        printf("Menu\n");
+        printf("1.Italian pasta\n");
+        printf("2.drink\n");
+        printf("3.dessert\n");
+        printf("4.I have ordered the menu, I settle accounts.\n");
+        printf("->");
+        scanf("%d",&choice);
+        getchar();
+        system("CLS");
+    }
+    payment(order.pasta,order.drink,order.dessert,order.lotto);
+    return 0;
+}
